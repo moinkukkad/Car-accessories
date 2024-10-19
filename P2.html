@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Product Page</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif; /* Use Arial font for the page */
+            background-color: #f4f4f4; /* Light grey background */
+            padding: 20px; /* Space around the content */
+        }
+
+        /* Header styling */
+        .header {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out header items */
+            align-items: center; /* Center items vertically */
+            background-color: #333; /* Dark background for header */
+            padding: 10px 20px; /* Space inside header */
+            color: white; /* Text color in the header */
+        }
+
+        .header img {
+            height: 100px; /* Set logo height */
+        }
+
+        /* Search input styling */
+        .header input[type="text"] {
+            padding: 5px; /* Space inside input */
+            width: 300px; /* Set width for the search box */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        /* Search button styling */
+        .header button {
+            background-color: #007BFF; /* Blue background for the button */
+            color: white; /* Text color for button */
+            border: none; /* No border */
+            padding: 5px 15px; /* Space inside button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        /* Hover effect for the search button */
+        .header button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Products container styling */
+        .products-container {
+            display: grid; /* Use grid layout for products */
+            grid-template-columns: repeat(3, 1fr); /* Three products per row */
+            gap: 20px; /* Space between product cards */
+            margin-top: 20px; /* Space above products */
+        }
+
+        /* Individual product card styling */
+        .product-card {
+            background-color: white; /* White background for cards */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.2s; /* Smooth transform effect */
+        }
+
+        /* Scale up product card on hover */
+        .product-card:hover {
+            transform: scale(1.05); /* Slightly enlarge card on hover */
+        }
+
+        /* Image styling within product cards */
+        .product-image {
+            width: 100%; /* Full width image */
+            height: 200px; /* Fixed height for images */
+            object-fit: cover; /* Cover the image area */
+        }
+
+        /* Product info container styling */
+        .product-info {
+            padding: 20px; /* Space inside product info */
+        }
+
+        /* Product title styling */
+        .product-title {
+            font-size: 18px; /* Font size for product title */
+            margin-bottom: 10px; /* Space below title */
+        }
+
+        /* Product price styling */
+        .product-price {
+            color: green; /* Green text for price */
+            font-size: 16px; /* Font size for price */
+            margin-bottom: 10px; /* Space below price */
+        }
+
+        /* Product description styling */
+        .product-description {
+            font-size: 14px; /* Font size for description */
+            color: #555; /* Darker grey for description text */
+            margin-bottom: 20px; /* Space below description */
+        }
+
+        /* Center the button container */
+        .btn-container {
+            text-align: center; /* Center buttons */
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 10px 20px; /* Space inside button */
+            background-color: #007BFF; /* Blue background for button */
+            color: white; /* Button text color */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        /* Hover effect for buttons */
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #f9f9f9; /* Light footer background */
+            padding: 40px 20px; /* Space inside footer */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out footer items */
+            flex-wrap: wrap; /* Allow wrapping of items */
+            border-top: 1px solid #e0e0e0; /* Light top border */
+            margin-top: 40px; /* Space above footer */
+        }
+
+        /* Footer logo size */
+        .footer-logo {
+            height: 50px; /* Set height for footer logo */
+            margin-bottom: 15px; /* Space below logo */
+        }
+
+        /* Footer links container styling */
+        .footer-links {
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out link sections */
+            flex-grow: 1; /* Allow to grow and fill space */
+        }
+
+        /* Individual footer link section styling */
+        .footer-links div {
+            margin-right: 40px; /* Space between sections */
+        }
+
+        /* Footer link section title styling */
+        .footer-links h3 {
+            font-size: 16px; /* Font size for section titles */
+            color: #333; /* Dark text color */
+            margin-bottom: 10px; /* Space below title */
+        }
+
+        /* Footer links list styling */
+        .footer-links ul {
+            list-style: none; /* Remove bullet points */
+        }
+
+        /* Individual footer link item styling */
+        .footer-links li {
+            margin-bottom: 5px; /* Space below each link */
+        }
+
+        /* Footer link styling */
+        .footer-links a {
+            text-decoration: none; /* Remove underline from links */
+            color: #555; /* Dark grey link color */
+            font-size: 14px; /* Font size for links */
+        }
+
+        /* Hover effect for footer links */
+        .footer-links a:hover {
+            color: #007BFF; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div>
+            <img src="llp.png" alt="Store Logo"> <!-- Store logo -->
+        </div>
+        <div>
+            <input type="text" placeholder="Search products..."> <!-- Search input for products -->
+            <button>Search</button> <!-- Search button -->
+        </div>
+        <div>
+           <button onclick="location.href='sgnin.html'">Sign In/Log In</button> <!-- Link to sign in page -->
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <div class="products-container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="PR1.webp" alt="Car Neck Pillow" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Car Neck Pillow</h2> <!-- Product title -->
+                <p class="product-price">$25</p> <!-- Product price -->
+                <p class="product-description">Comfortable neck pillow for cars with a stylish design for support during long drives.</p> <!-- Product description -->
+                <div class="btn-container">  
+                    <button class="btn" onclick="location.href='productPage.html?id=1'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="PR2.webp" alt="Steering Wheel Cover" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Steering Wheel Cover</h2> <!-- Product title -->
+                <p class="product-price">$18</p> <!-- Product price -->
+                <p class="product-description">Durable steering wheel cover with ergonomic grip for comfortable driving.</p> <!-- Product description -->
+                <div class="btn-container">
+                    <button class="btn" onclick="location.href='productPage.html?id=2'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="PR3.webp" alt="Car Seat Cushion" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Car Seat Cushion</h2> <!-- Product title -->
+                <p class="product-price">$40</p> <!-- Product price -->
+                <p class="product-description">Luxury car seat cushion for comfort and style in your car's interior.</p> <!-- Product description -->
+                <div class="btn-container">
+                    <button class="btn" onclick="location.href='productPage.html?id=3'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <img src="PR4.JPG" alt="Dashboard Organizer" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Dashboard Organizer</h2> <!-- Product title -->
+                <p class="product-price">$15</p> <!-- Product price -->
+                <p class="product-description">Keep your dashboard organized with this multipurpose storage solution.</p> <!-- Product description -->
+                <div class="btn-container">
+                    <button class="btn" onclick="location.href='productPage.html?id=4'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <img src="PR5.JPG" alt="Car Air Freshener" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Car Air Freshener</h2> <!-- Product title -->
+                <p class="product-price">$10</p> <!-- Product price -->
+                <p class="product-description">Aromatic car air freshener with a refreshing scent for your vehicle.</p> <!-- Product description -->
+                <div class="btn-container">
+                    <button class="btn" onclick="location.href='productPage.html?id=5'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <img src="PR6.JPG" alt="Car Phone Holder" class="product-image"> <!-- Product image -->
+            <div class="product-info">
+                <h2 class="product-title">Car Phone Holder</h2> <!-- Product title -->
+                <p class="product-price">$20</p> <!-- Product price -->
+                <p class="product-description">Hands-free phone holder with adjustable angles for safe driving.</p> <!-- Product description -->
+                <div class="btn-container">
+                    <button class="btn" onclick="location.href='productPage.html?id=6'">View Details</button> <!-- Button to view product details -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div>
+            <img src="llp.png" alt="Store Logo" class="footer-logo"> <!-- Footer logo -->
+        </div>
+        <div class="footer-links">
+            <div>
+                <h3>Car Accessories</h3> <!-- Section title -->
+                <ul>
+                    <li><a href="#">Seat Covers</a></li>
+                    <li><a href="#">Steering Wheel Covers</a></li>
+                    <li><a href="#">Car Mats</a></li>
+                    <li><a href="#">Car Cushions</a></li>
+                    <li><a href="#">Air Fresheners</a></li>
+                    <li><a href="#">Phone Holders</a></li>
+                    <li><a href="#">Car Organizers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Maintenance Tips</h3> <!-- Section title -->
+                <ul>
+                    <li><a href="#">Cleaning Your Car</a></li>
+                    <li><a href="#">Interior Care</a></li>
+                    <li><a href="#">Seasonal Maintenance</a></li>
+                    <li><a href="#">Preventative Care</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Resources</h3> <!-- Section title -->
+                <ul>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Information</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

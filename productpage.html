@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif; /* Using a clean sans-serif font */
+            padding: 20px; /* Adding some space around the content */
+        }
+
+        /* Styling the product container */
+        .product-container {
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center the content horizontally */
+            align-items: center; /* Center the content vertically */
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        /* Image styling */
+        .product-image {
+            width: 300px; /* Fixed width for the product image */
+            height: auto; /* Maintain the aspect ratio */
+        }
+
+        /* Title styling */
+        .product-title {
+            font-size: 24px; /* Bigger font for the product title */
+            margin-top: 20px; /* Space above the title */
+        }
+
+        /* Price styling */
+        .product-price {
+            color: green; /* Green color for the price */
+            font-size: 20px; /* Slightly larger font for price */
+        }
+
+        /* Description styling */
+        .product-description {
+            margin-top: 10px; /* Space above the description */
+            font-size: 16px; /* Regular font size for description */
+            text-align: center; /* Center the text for a neat look */
+        }
+
+        /* Button container styling */
+        .buttons-container {
+            margin-top: 20px; /* Space above the button container */
+        }
+
+        /* General button styling */
+        .btn {
+            padding: 10px 20px; /* Comfortable padding inside buttons */
+            margin: 10px; /* Space between buttons */
+            background-color: #007BFF; /* Default blue for buttons */
+            color: white; /* White text on buttons */
+            border: none; /* No border for a clean look */
+            border-radius: 5px; /* Rounded corners for a friendly appearance */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Consistent font size for buttons */
+        }
+
+        /* Button hover effects for better interaction */
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover for feedback */
+        }
+
+        /* Specific styles for different button types */
+        .btn-order {
+            background-color: #28a745; /* Green for the 'Order Now' button */
+        }
+
+        .btn-order:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .btn-back {
+            background-color: #6c757d; /* Grey for the 'Back to Shop' button */
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268; /* Darker grey on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main product display section -->
+    <div class="product-container">
+        <img id="productImage" class="product-image" src="" alt="Product Image"> <!-- Placeholder for product image -->
+        <h2 id="productTitle" class="product-title"></h2> <!-- Placeholder for product title -->
+        <p id="productPrice" class="product-price"></p> <!-- Placeholder for product price -->
+        <p id="productDescription" class="product-description"></p> <!-- Placeholder for product description -->
+
+        <!-- Buttons for actions -->
+        <div class="buttons-container">
+            <button class="btn btn-order" onclick="orderNow()">Order Now</button> <!-- Button to place an order -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button> <!-- Button to add the product to the cart -->
+            <button class="btn btn-back" onclick="goBackToShop()">Back to Shop</button> <!-- Button to return to the shop -->
+        </div>
+    </div>
+
+    <script>
+        // Function to extract the product ID from the URL
+        function getProductIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search); // Parse URL parameters
+            return urlParams.get('id'); // Retrieve the 'id' parameter
+        }
+
+        // Sample product data (would typically be pulled from a database)
+        const products = {
+            1: {
+                title: "Car Neck Pillow",
+                price: "$25",
+                description: "Enjoy a comfortable ride with this stylish neck pillow designed to provide support during long drives.",
+                image: "PR1.webp"
+            },
+            2: {
+                title: "Steering Wheel Cover",
+                price: "$18",
+                description: "This durable steering wheel cover offers an ergonomic grip for a comfortable driving experience.",
+                image: "PR2.webp"
+            },
+            3: {
+                title: "Car Seat Cushion",
+                price: "$40",
+                description: "Elevate your driving comfort with our luxury car seat cushion, crafted from high-quality materials.",
+                image: "PR3.webp"
+            },
+            4: {
+                title: "Dashboard Organizer",
+                price: "$15",
+                description: "Keep your dashboard tidy with this handy organizer, perfect for storing small items while driving.",
+                image: "PR4.JPG"
+            },
+            5: {
+                title: "Car Air Freshener",
+                price: "$10",
+                description: "Breathe easy with our aromatic car air freshener that keeps your vehicle smelling fresh and inviting.",
+                image: "PR5.JPG"
+            },
+            6: {
+                title: "Car Phone Holder",
+                price: "$20",
+                description: "Stay hands-free while navigating with our adjustable phone holder, designed for a safe driving experience.",
+                image: "PR6.JPG"
+            }
+        };
+
+        // Get the product ID from the URL and populate the product details
+        const productId = getProductIdFromURL();
+
+        if (productId && products[productId]) {
+            const product = products[productId]; // Get the corresponding product data
+            document.getElementById('productTitle').innerText = product.title; // Set the product title
+            document.getElementById('productPrice').innerText = product.price; // Set the product price
+            document.getElementById('productDescription').innerText = product.description; // Set the product description
+            document.getElementById('productImage').src = product.image; // Set the product image
+        } else {
+            document.body.innerHTML = "<h2>Oops! Product not found.</h2>"; // Display error message if product not found
+        }
+
+        // Function to handle the 'Order Now' button click
+        function orderNow() {
+            alert("Thank you for your order of " + products[productId].title + "!"); // Confirmation alert for order
+        }
+
+        // Function to handle adding the product to the cart
+        function addToCart() {
+            alert(products[productId].title + " has been added to your cart!"); // Confirmation alert for cart addition
+        }
+
+        // Function to navigate back to the shop page
+        function goBackToShop() {
+            window.location.href = 'P2.html'; // Redirect to the shop page
+        }
+    </script>
+
+</body>
+</html>

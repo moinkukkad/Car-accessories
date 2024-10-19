@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif; /* Clean, modern font */
+            background-color: #f4f4f4; /* Light gray background */
+            padding: 50px; /* Space around the content */
+        }
+
+        /* Container for the sign-in form */
+        .container {
+            max-width: 400px; /* Maximum width for the container */
+            margin: auto; /* Center the container */
+            padding: 20px; /* Inner spacing */
+            background-color: white; /* White background for the form */
+            border-radius: 10px; /* Rounded corners for a friendly look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        /* Centered heading */
+        h2 {
+            text-align: center; /* Center the title */
+        }
+
+        /* Styling for form groups */
+        .form-group {
+            margin-bottom: 15px; /* Space between form elements */
+        }
+
+        /* Label styling */
+        .form-group label {
+            display: block; /* Labels on their own lines */
+            margin-bottom: 5px; /* Space below labels */
+        }
+
+        /* Input field styling */
+        .form-group input {
+            width: 100%; /* Full width for input fields */
+            padding: 10px; /* Comfortable padding inside inputs */
+            border: 1px solid #ccc; /* Light border for input fields */
+            border-radius: 5px; /* Rounded corners for inputs */
+        }
+
+        /* Button styling */
+        .btn {
+            width: 100%; /* Full width for the button */
+            padding: 10px; /* Padding for the button */
+            background-color: #007BFF; /* Blue button color */
+            color: white; /* White text for the button */
+            border: none; /* No border for a clean look */
+            border-radius: 5px; /* Rounded corners for the button */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Redirect message styling */
+        .redirect {
+            text-align: center; /* Center the text */
+            margin-top: 20px; /* Space above this section */
+        }
+
+        /* Link styling */
+        .redirect a {
+            color: #007BFF; /* Blue link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Link hover effect */
+        .redirect a:hover {
+            text-decoration: underline; /* Underline on hover for emphasis */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Welcome Back!</h2> <!-- Friendly greeting -->
+        <form id="signInForm" onsubmit="return signIn();"> <!-- Form for sign in -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required> <!-- Input for username -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required> <!-- Input for password -->
+            </div>
+            <button type="submit" class="btn">Sign In</button> <!-- Submit button -->
+        </form>
+        <div class="redirect">
+            <p>Don't have an account yet? <a href="sign-up.html">Sign Up</a></p> <!-- Link to sign up page -->
+        </div>
+    </div>
+
+    <script>
+        // Sign In function (placeholder for future implementation)
+        function signIn() {
+            // Here you can add logic to handle user sign in
+            alert("Oops! The sign-in functionality is not ready yet. Stay tuned!"); // Friendly alert message
+            return false; // Prevent form submission for now
+        }
+    </script>
+
+</body>
+</html>
